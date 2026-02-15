@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Patrick+Hand&family=Comic+Neue:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --beep-yellow: #FFE66D;
+  --beep-cream: #FFF8E7;
+  --beep-blue: #A8D8EA;
+  --beep-soft-blue: #D4E9F5;
+  --beep-dark: #2D3436;
+  --beep-light-yellow: #FFFCE8;
+  
+  --background: 0 0% 100%;
+  --foreground: 195 9% 18%;
+  --card: 43 100% 96%;
+  --card-foreground: 195 9% 18%;
+  --popover: 43 100% 96%;
+  --popover-foreground: 195 9% 18%;
+  --primary: 45 100% 71%;
+  --primary-foreground: 195 9% 18%;
+  --secondary: 33 100% 65%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 43 60% 92%;
+  --muted-foreground: 195 5% 45%;
+  --accent: 170 58% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 71%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 43 40% 88%;
+  --input: 43 40% 88%;
+  --ring: 45 100% 71%;
+  --radius: 1rem;
+}
+
+* {
+  font-family: 'Bubblegum Sans', cursive;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--beep-cream);
+  color: var(--beep-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p, span, li, label, input, textarea {
+  font-family: 'Patrick Hand', cursive;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--beep-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--beep-yellow);
+  border-radius: 3px;
+}
+
+/* Ducky bounce animation */
+@keyframes ducky-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes ducky-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(2deg); }
+  66% { transform: translateY(-4px) rotate(-1deg); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+@keyframes wave {
+  0%, 100% { d: path("M0,40 C30,20 70,60 100,40 C130,20 170,60 200,40 V100 H0 Z"); }
+  50% { d: path("M0,50 C30,30 70,70 100,50 C130,30 170,70 200,50 V100 H0 Z"); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-ducky-bounce {
+  animation: ducky-bounce 1s ease-in-out infinite;
+}
+.animate-ducky-wobble {
+  animation: ducky-wobble 2s ease-in-out infinite;
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,230,109,0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Recording pulse */
+@keyframes recording-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.5); }
+  50% { box-shadow: 0 0 0 20px rgba(255, 107, 107, 0); }
+}
+.animate-recording-pulse {
+  animation: recording-pulse 1.5s ease-in-out infinite;
+}
+
+/* Safe area for iOS */
+.safe-area-top { padding-top: env(safe-area-inset-top); }
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
